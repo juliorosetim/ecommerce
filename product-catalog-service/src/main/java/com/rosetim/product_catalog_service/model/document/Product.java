@@ -1,4 +1,4 @@
-package com.rosetim.product_catalog_service.domain.document;
+package com.rosetim.product_catalog_service.model.document;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

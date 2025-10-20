@@ -1,8 +1,8 @@
 package com.rosetim.product_catalog_service.service.product;
 
-import com.rosetim.product_catalog_service.domain.document.Product;
-import com.rosetim.product_catalog_service.domain.dto.ProductRequest;
-import com.rosetim.product_catalog_service.domain.dto.ProductResponse;
+import com.rosetim.product_catalog_service.model.document.Product;
+import com.rosetim.product_catalog_service.model.dto.ProductRequest;
+import com.rosetim.product_catalog_service.model.dto.ProductResponse;
 import com.rosetim.product_catalog_service.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;

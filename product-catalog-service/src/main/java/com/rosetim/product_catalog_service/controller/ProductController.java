@@ -1,7 +1,7 @@
 package com.rosetim.product_catalog_service.controller;
 
-import com.rosetim.product_catalog_service.domain.dto.ProductRequest;
-import com.rosetim.product_catalog_service.domain.dto.ProductResponse;
+import com.rosetim.product_catalog_service.model.dto.ProductRequest;
+import com.rosetim.product_catalog_service.model.dto.ProductResponse;
 import com.rosetim.product_catalog_service.service.product.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

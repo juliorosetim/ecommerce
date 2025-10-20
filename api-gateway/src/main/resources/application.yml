@@ -10,7 +10,19 @@ spring:
           uri: http://localhost:8082
           predicates:
             - Path=/api/users/**
+          filters:
+            - Authentication
         - id: product-service-route
           uri: http://localhost:8083
           predicates:
             - Path=/api/products/**
+          filters:
+            - Authentication
+        - id: shopping-cart-service-route
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/carts/**
+          filters:
+            - Authentication
+jwt:
+  secret: NDFGbWd2bU52bE5ySEY2Z3VBZkpCV0ZzYk5TeVo0VzM=

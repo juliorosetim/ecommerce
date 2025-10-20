@@ -1,5 +1,6 @@
 package com.rosetim.userservice.model.dto;
 
+import com.rosetim.userservice.validations.EmailValidation;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -11,10 +12,10 @@ public class UserCreateRequest {
     private String name;
 
     @NotBlank(message = "O email é obrigatório")
-    @Email(message = "Formato do e-mail inválido")
+    @EmailValidation
     private String email;
 
     @NotBlank(message = "A senha é obrigatória")
-    @Size(message = "A senha deve conter no mínimo 8 caracteres")
+    @Size(message = "A senha deve conter no mínimo 8 caracteres", min = 8)
     private String password;
 }

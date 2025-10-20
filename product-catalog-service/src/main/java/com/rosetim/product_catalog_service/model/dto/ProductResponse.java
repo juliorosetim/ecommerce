@@ -1,4 +1,4 @@
-package com.rosetim.product_catalog_service.domain.dto;
+package com.rosetim.product_catalog_service.model.dto;
 
 import lombok.Data;
 

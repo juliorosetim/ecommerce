@@ -1,8 +1,6 @@
 package com.rosetim.userservice.controller;
 
-import com.rosetim.userservice.model.dto.LoginRequest;
-import com.rosetim.userservice.model.dto.LoginResponse;
-import com.rosetim.userservice.model.dto.UserCreateRequest;
+import com.rosetim.userservice.model.dto.*;
 import com.rosetim.userservice.model.entity.UserEntity;
 import com.rosetim.userservice.service.User.UserService;
 import com.rosetim.userservice.service.jwt.JwtService;
@@ -17,6 +15,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -30,8 +30,8 @@ public class UserController {
     private JwtService jwtService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserEntity> registerUser(@RequestBody @Valid UserCreateRequest userCreateRequest) {
-        UserEntity savedUser = userService.registerUser(userCreateRequest);
+    public ResponseEntity<UserCreateResponse> registerUser(@RequestBody @Valid UserCreateRequest userCreateRequest) {
+        UserCreateResponse savedUser = userService.registerUser(userCreateRequest);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
@@ -47,12 +47,18 @@ public class UserController {
         return ResponseEntity.ok(new LoginResponse(token));
     }
 
-    // Em UserController.java
     @GetMapping("/me")
     public ResponseEntity<String> getAuthenticatedUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         return ResponseEntity.ok("Você está autenticado como: " + currentPrincipalName);
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<List<UsersGetAllRespnse>> getUsers() {
+        List<UsersGetAllRespnse> users = userService.getAllUsers();
+
+        return ResponseEntity.ok().body(users);
     }
 
 }
